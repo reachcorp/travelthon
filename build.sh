@@ -1,3 +1,4 @@
+mkdir -p ./docker/context/dockerdist
 rm -rf ./docker/context/dockerdist/*
 cp -Rf ./README.md ./docker/context/dockerdist/
 mkdir -p ./docker/context/dockerdist/src/ && cp -Rf ./src/* ./docker/context/dockerdist/src/
