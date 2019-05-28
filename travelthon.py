@@ -1,22 +1,17 @@
-import logging
+
 import os
-import threading
-from flask import Flask
 import src.consumers as consumers
 
 
-
-app = Flask(__name__)
-
-#travelthon_in=os.environ['TRAVELTHON_IN']
-#travelthon_out = os.environ["TRAVELTHON_OUT"]
-#geotrouvethon_url_locate="http://"+str(os.environ['GEOTROUVETHON_URL'])+":"+str(os.environ['GEOTROUVETHON_PORT'])+"/locate"
-#kafka_endpoint = str(os.environ["KAFKA_IP"]) + ":" + str(os.environ["KAFKA_PORT"])
+travelthon_in=os.environ['TRAVELTHON_IN']
+travelthon_out = os.environ["TRAVELTHON_OUT"]
+geotrouvethon_url_locate="http://"+str(os.environ['GEOTROUVETHON_IP'])+":"+str(os.environ['GEOTROUVETHON_PORT'])+"/locate"
+kafka_endpoint = str(os.environ["KAFKA_IP"]) + ":" + str(os.environ["KAFKA_PORT"])
 # pour dev
-travelthon_in = "travelthon_in"
-travelthon_out = "travelthon_out"
-geotrouvethon_url_locate="http://192.168.0.13:9966/locate"
-kafka_endpoint =  "192.168.0.13:8092"
+#travelthon_in = "travelthon_in"
+#travelthon_out = "travelthon_out"
+#geotrouvethon_url_locate="http://192.168.0.13:9966/locate"
+#kafka_endpoint =  "192.168.0.13:8092"
 
 
 if __name__ == '__main__':

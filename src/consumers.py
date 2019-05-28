@@ -22,6 +22,7 @@ class Consumer(multiprocessing.Process):
         self.stop_event.set()
 
     def run(self):
+        print("Lancement du thread pour depiler file kafka "+self.topic_in)
         consumer = KafkaConsumer(bootstrap_servers=self.kafka_endpoint,
                                  auto_offset_reset='latest',
                                  consumer_timeout_ms=1000)
@@ -49,8 +50,8 @@ class Consumer(multiprocessing.Process):
 
     def fill_kafka_out(self, idBio, destination, locationCoordinates, producer):
         json_togo = {
-            "destination": destination,
             "idBio" : idBio,
+            "locationName": destination,
             "locationCoordinates": locationCoordinates
         }
         producer.send(self.topic_out, value=(json_togo))
