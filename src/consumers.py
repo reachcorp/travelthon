@@ -33,7 +33,7 @@ class Consumer(multiprocessing.Process):
         while not self.stop_event.is_set():
             for message in consumer:
                 #decodage du message en byte to string
-                msg = message.value.decode('utf8').replace("'", '"')
+                msg = message.value.decode('utf8')
                 #recuperation des donneés du json
                 data = json.loads(msg)
                 destination = data['destination']
