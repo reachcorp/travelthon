@@ -10,8 +10,8 @@ geotrouvethon_url_locate="http://"+str(os.environ['GEOTROUVETHON_IP'])+":"+str(o
 kafka_endpoint = str(os.environ["KAFKA_IP"]) + ":" + str(os.environ["KAFKA_PORT"])
 debug_level = os.environ["DEBUG_LEVEL"]
 # pour dev
-#topic_in = "travelthon_in"
-#topic_out = "travelthon_out"
+#topic_in = "housToTravel"
+#topic_out = "locToColissi"
 #geotrouvethon_url_locate="http://192.168.0.31:9966/locate"
 #kafka_endpoint =  "192.168.0.31:8092"
 #debug_level ="INFO"

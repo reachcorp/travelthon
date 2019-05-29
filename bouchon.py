@@ -25,7 +25,7 @@ def main():
             {"destination" : "Palais de l\'Elysée", "idBio": "4096" }
         ]
         for i in range(len(tab)):
-            producer.send('travelthon_in', value=tab[i])
+            producer.send('housToTravel', value=tab[i])
             sleep(0.5)
 
     except Exception as e:
