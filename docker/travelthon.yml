@@ -6,9 +6,9 @@ services:
     build:
         context: ./context/
     environment:
-        KAFKA_IP: 192.168.0.13
+        KAFKA_IP: 192.168.0.31
         KAFKA_PORT: 8092
-        GEOTROUVETHON_IP: 192.168.0.13
+        GEOTROUVETHON_IP: 192.168.0.31
         GEOTROUVETHON_PORT: 9966
-        TRAVELTHON_IN: travelthon_in
-        TRAVELTHON_OUT: travelthon_out
+        TOPIC_IN: travelthon_in
+        TOPIC_OUT: travelthon_out

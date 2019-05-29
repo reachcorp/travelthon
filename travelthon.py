@@ -3,8 +3,8 @@ import os
 import src.consumers as consumers
 
 
-travelthon_in=os.environ['TRAVELTHON_IN']
-travelthon_out = os.environ["TRAVELTHON_OUT"]
+topic_in=os.environ['TOPIC_IN']
+topic_out = os.environ["TOPIC_OUT"]
 geotrouvethon_url_locate="http://"+str(os.environ['GEOTROUVETHON_IP'])+":"+str(os.environ['GEOTROUVETHON_PORT'])+"/locate"
 kafka_endpoint = str(os.environ["KAFKA_IP"]) + ":" + str(os.environ["KAFKA_PORT"])
 # pour dev
@@ -16,7 +16,7 @@ kafka_endpoint = str(os.environ["KAFKA_IP"]) + ":" + str(os.environ["KAFKA_PORT"
 
 if __name__ == '__main__':
     tasks = [
-        consumers.Consumer(kafka_endpoint,travelthon_in,travelthon_out,geotrouvethon_url_locate)
+        consumers.Consumer(kafka_endpoint,topic_in,topic_out,geotrouvethon_url_locate)
     ]
     #lancement du thread de consomation du topic
     for t in tasks:
