@@ -12,3 +12,4 @@ services:
         GEOTROUVETHON_PORT: 9966
         TOPIC_IN: travelthon_in
         TOPIC_OUT: travelthon_out
+        DEBUG_LEVEL: INFO

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+import logging
 import multiprocessing
 import json
 import src.services as services
@@ -22,7 +22,7 @@ class Consumer(multiprocessing.Process):
         self.stop_event.set()
 
     def run(self):
-        print("Lancement du thread pour depiler file kafka "+self.topic_in)
+        logging.info("Lancement du thread pour depiler file kafka "+self.topic_in)
         consumer = KafkaConsumer(bootstrap_servers=self.kafka_endpoint,
                                  auto_offset_reset='latest',
                                  consumer_timeout_ms=1000)
@@ -42,7 +42,7 @@ class Consumer(multiprocessing.Process):
                     break
                 #recupération des coordonnee de la destination en appellant service rest de geotrouvethon
                 locationCoordinates=services.getCoordFromLocation(destination, self.geotrouvethon_url_locate)
-                print(destination + " " +locationCoordinates)
+                logging.info(destination + " " +locationCoordinates)
                 #envoi du tout dans la file kafka self.topic_out
                 self.fill_kafka_out(idBio,destination,locationCoordinates, producer)
 

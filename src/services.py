@@ -1,4 +1,5 @@
 import requests
+import logging
 import urllib as ul
 
 def getCoordFromLocation(locationName,url):
@@ -9,5 +10,5 @@ def getCoordFromLocation(locationName,url):
     get_response = session.get(url_location)
     if get_response.status_code == 200:
         locationCoordinates = str(get_response.content, "utf-8")
-        print("SUCCESSFUL REQUEST :  " + str(get_response))
+        logging.info("SUCCESSFUL REQUEST :  " + str(get_response))
         return locationCoordinates
