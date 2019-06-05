@@ -9,6 +9,9 @@ def getCoordFromLocation(locationName,url):
     #appel a geotrouvethon http://127.0.0.1:9966/locate/<place>
     get_response = session.get(url_location)
     if get_response.status_code == 200:
-        locationCoordinates = str(get_response.content, "utf-8")
         logging.info("SUCCESSFUL REQUEST :  " + str(get_response))
+        latitude = get_response.json()[0]
+        longitude = get_response.json()[1]
+        locationCoordinates = str(latitude)+","+str(longitude)
+        logging.info("REPONSE :  " + locationCoordinates)
         return locationCoordinates
